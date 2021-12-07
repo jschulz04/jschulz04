@@ -14,7 +14,14 @@ public class MonoAlphabeticCipher implements Cipher{
 
     protected void setSecretAlphabet(String secretAlphabet) {
         if(secretAlphabet.length() == standardAlphabet.length()) {
-            this.secretAlphabet = secretAlphabet;
+            for(int i=0;i<secretAlphabet.length();i++){
+                for(int x=i+1;x<secretAlphabet.length();x++){
+                    if(secretAlphabet.charAt(i)==secretAlphabet.charAt(x)){
+                        break;
+                    }
+                }
+            }
+            this.secretAlphabet= secretAlphabet.toLowerCase();
         }
     }
 
