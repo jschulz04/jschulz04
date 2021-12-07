@@ -1,8 +1,5 @@
 package jschulz;
 
-/**
- * MonoAlphabeticCipher
- */
 public class MonoAlphabeticCipher implements Cipher{
     private String secretAlphabet = "";
     private String standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
