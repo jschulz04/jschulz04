@@ -8,11 +8,11 @@ public class ShiftCipher extends MonoAlphabeticCipher{
     public void setShiftValue(int value) {
         String standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
         String secretAlphabet ="";
-        value=value%26;
+        value=value%standardAlphabet.length();
         if(value<0) {
-            value=26+value;
+            value=standardAlphabet.length()+value;
         }
-        secretAlphabet+=standardAlphabet.substring(value, 26);
+        secretAlphabet+=standardAlphabet.substring(value, standardAlphabet.length());
         secretAlphabet+=standardAlphabet.substring(0,value);
         setSecretAlphabet(secretAlphabet);
     }
