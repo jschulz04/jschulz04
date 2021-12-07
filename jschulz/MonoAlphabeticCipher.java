@@ -13,15 +13,18 @@ public class MonoAlphabeticCipher implements Cipher{
     }
 
     protected void setSecretAlphabet(String secretAlphabet) {
+        boolean isDuplicate = false;
         if(secretAlphabet.length() == standardAlphabet.length()) {
-            for(int i=0;i<secretAlphabet.length();i++){
-                for(int x=i+1;x<secretAlphabet.length();x++){
-                    if(secretAlphabet.charAt(i)==secretAlphabet.charAt(x)){
-                        break;
+            for (int i = 0; i < secretAlphabet.length() - 1; i++) {
+                for (int j = i + 1; j < secretAlphabet.length(); j++) {
+                    if (secretAlphabet.charAt(j) == secretAlphabet.charAt(i)) {
+                        isDuplicate = true;
                     }
                 }
             }
-            this.secretAlphabet= secretAlphabet.toLowerCase();
+            if (!isDuplicate) {
+                this.secretAlphabet= secretAlphabet.toLowerCase();                
+            }
         }
     }
 
