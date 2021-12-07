@@ -5,6 +5,7 @@ package jschulz;
  */
 public class MonoAlphabeticCipher implements Cipher{
     private String secretAlphabet = "";
+    private String standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
     MonoAlphabeticCipher() {
         secretAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -14,23 +15,21 @@ public class MonoAlphabeticCipher implements Cipher{
         return secretAlphabet;
     }
 
-    public void setSecretAlphabet(String secretAlphabet) {
+    protected void setSecretAlphabet(String secretAlphabet) {
         this.secretAlphabet = secretAlphabet;
     }
 
     @Override
     public String encrypt(String input) {
-        int tempchar;
         String output ="";
         input = input.toLowerCase();
         for (int i = 0; i < input.length(); i++) {
-            tempchar = input.charAt(i);
-            if(tempchar >= 97 && tempchar <= 122 ) {
-                tempchar -= 97;
-                tempchar = secretAlphabet.charAt(tempchar);
-                output += (char)tempchar+"";
+            char c = input.charAt(i);
+            int pos = secretAlphabet.indexOf(c);
+            if (pos != -1) {
+                output+=standardAlphabet.charAt(pos);
             } else {
-                output += (char)tempchar+"";
+                output+=c;
             }
         }
         return output;
@@ -38,14 +37,15 @@ public class MonoAlphabeticCipher implements Cipher{
 
     @Override 
     public String decrypt(String text){
-        String alphabet="abcdefghijklmnopqrstuvwxyz";
-        String output="";
-        text=text.toLowerCase();
-        for(int i=0;i<text.length();i++){
-            for(int x=0;x<this.secretAlphabet.length();x++){
-                if(this.secretAlphabet.charAt(x) == (text.charAt(i))){
-                    output=output+alphabet.charAt(x);
-                }
+        String output ="";
+        text = text.toLowerCase();
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            int pos = standardAlphabet.indexOf(c);
+            if (pos != -1) {
+                output+=secretAlphabet.charAt(pos);
+            } else {
+                output+=c;
             }
         }
         return output;
