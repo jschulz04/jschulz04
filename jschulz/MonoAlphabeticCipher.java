@@ -16,9 +16,11 @@ public class MonoAlphabeticCipher implements Cipher{
         boolean isDuplicate = false;
         if(secretAlphabet.length() == standardAlphabet.length()) {
             for (int i = 0; i < secretAlphabet.length() - 1; i++) {
-                for (int j = i + 1; j < secretAlphabet.length(); j++) {
-                    if (secretAlphabet.charAt(j) == secretAlphabet.charAt(i)) {
-                        isDuplicate = true;
+                if(!isDuplicate){
+                    for (int j = i + 1; j < secretAlphabet.length(); j++) {
+                        if (secretAlphabet.charAt(j) == secretAlphabet.charAt(i)) {
+                            isDuplicate = true;
+                        }
                     }
                 }
             }
