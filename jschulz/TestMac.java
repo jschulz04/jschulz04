@@ -25,5 +25,6 @@ public class TestMac {
         subc.setSecretAlphabet("qjklyxcvbnmwertzuiopasdfgh");
         System.out.println(subc.encrypt("hallo123!"));
         System.out.println(subc.decrypt("zudds123!"));
+        System.out.println("l");
     }
 }
