@@ -5,7 +5,7 @@ public class MonoAlphabeticCipher implements Cipher{
     private String standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
     MonoAlphabeticCipher() {
-        secretAlphabet = "abcdefghijklmnopqrstuvwxyz";
+        secretAlphabet = standardAlphabet;
     }
 
     public String getSecretAlphabet() {
@@ -13,7 +13,9 @@ public class MonoAlphabeticCipher implements Cipher{
     }
 
     protected void setSecretAlphabet(String secretAlphabet) {
-        this.secretAlphabet = secretAlphabet;
+        if(secretAlphabet.length() == standardAlphabet.length()) {
+            this.secretAlphabet = secretAlphabet;
+        }
     }
 
     @Override
