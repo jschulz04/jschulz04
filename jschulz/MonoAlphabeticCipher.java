@@ -1,6 +1,11 @@
 package jschulz;
 
-public class MonoAlphabeticCipher implements Cipher{
+/**
+ * Bildet die Grundlage für ShiftCipher und SubstitutionCipher und bindet das Interface Cipher ein
+ * @author Johannes Schulz
+ * @version 28-11-2021
+ */
+public abstract class MonoAlphabeticCipher implements Cipher{
     private String secretAlphabet = "";
     private String standardAlphabet = "abcdefghijklmnopqrstuvwxyz";
 
@@ -30,6 +35,11 @@ public class MonoAlphabeticCipher implements Cipher{
         }
     }
 
+    /**
+     * Verschlüsselt den Text mithilfe des secretAlphabets
+     * @param input der Ausgangstext
+     * @return der fertig verschlüsselte Text
+     */
     @Override
     public String encrypt(String input) {
         String output ="";
@@ -46,6 +56,11 @@ public class MonoAlphabeticCipher implements Cipher{
         return output;
     }
 
+    /**
+     * Entschlüsselt den Text mithilfe des secretAlphabets
+     * @param text der verschlüsselte Ausgangstext
+     * @return der fertig entschlüsselte Text
+     */
     @Override 
     public String decrypt(String text){
         String output ="";

@@ -1,13 +1,12 @@
 package jschulz;
 
+/**
+ * Testet alle Klassen der Verschlüsselung
+ * @author Johannes Schulz
+ * @version 28-11-2021
+ */
 public class TestMac {
     public static void main(String[] args) {
-        //MonoAlphabeticCipher
-        System.out.println("MonoAlphabeticCipher");
-        MonoAlphabeticCipher mac = new MonoAlphabeticCipher();        
-        System.out.println(mac.encrypt("hallo123!"));
-        System.out.println(mac.decrypt("hallo123!"));
-
         //ShiftCipher
         System.out.println("\nShiftCipher");
         ShiftCipher sc = new ShiftCipher(5);

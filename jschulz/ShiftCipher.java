@@ -1,5 +1,10 @@
 package jschulz;
 
+/**
+ * Verschlüsselt den Text durch Verschiebung
+ * @author Johannes Schulz
+ * @version 28-11-2021
+ */
 public class ShiftCipher extends MonoAlphabeticCipher{
     ShiftCipher(int value) {
         super();
